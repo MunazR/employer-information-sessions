@@ -1,13 +1,1 @@
-/node_modules/*
-
-!/node_modules/react
-/node_modules/react/*
-!/node_modules/react/dist/
-/node_modules/react/dist/*
-!/node_modules/react/dist/react.js
-
-!/node_modules/react-dom
-/node_modules/react-dom/*
-!/node_modules/react-dom/dist/
-/node_modules/react-dom/dist/*
-!/node_modules/react-dom/dist/react-dom.js
+/node_modules/
