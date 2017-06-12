@@ -69,7 +69,7 @@ export class App extends React.Component<AppProps, AppState> {
                 {isLoading && <div id="p2" className="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>}
                 {!isLoading && <h4 className="align-center">{moment(date).format('dddd MMMM Do')}</h4>}
                 {!isLoading && todaySessions.length === 0 && <h4 className="align-center">No employer information sessions</h4>}
-                {!isLoading && todaySessions.length !== 0 && sessionCards}
+                {!isLoading && todaySessions.length !== 0 && <div className="mdl-grid">{sessionCards}</div>}
             </div>
         );
     }

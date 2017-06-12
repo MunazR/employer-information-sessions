@@ -25140,7 +25140,7 @@ var App = (function (_super) {
             isLoading && React.createElement("div", { id: "p2", className: "mdl-progress mdl-js-progress mdl-progress__indeterminate" }),
             !isLoading && React.createElement("h4", { className: "align-center" }, moment(date).format('dddd MMMM Do')),
             !isLoading && todaySessions.length === 0 && React.createElement("h4", { className: "align-center" }, "No employer information sessions"),
-            !isLoading && todaySessions.length !== 0 && sessionCards));
+            !isLoading && todaySessions.length !== 0 && React.createElement("div", { className: "mdl-grid" }, sessionCards)));
     };
     return App;
 }(React.Component));
