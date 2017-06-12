@@ -42,15 +42,11 @@ export class App extends React.Component<AppProps, AppState> {
         const { isLoading, sessions } = this.state;
         const { date } = this.props;
 
-        const todaySessions: SessionInfo[] = [];
-
-        sessions.forEach((session: SessionInfo) => {
+        const todaySessions = sessions.filter((session: SessionInfo) => {
             const sessionDate = moment(session.date);
             const momentDate = moment(date);
 
-            if (sessionDate.dayOfYear() === momentDate.dayOfYear()) {
-                todaySessions.push(session);
-            }
+            return sessionDate.dayOfYear() === momentDate.dayOfYear();
         });
 
         todaySessions.sort((a: SessionInfo, b: SessionInfo) => {

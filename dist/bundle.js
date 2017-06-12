@@ -25120,13 +25120,10 @@ var App = (function (_super) {
     App.prototype.render = function () {
         var _a = this.state, isLoading = _a.isLoading, sessions = _a.sessions;
         var date = this.props.date;
-        var todaySessions = [];
-        sessions.forEach(function (session) {
+        var todaySessions = sessions.filter(function (session) {
             var sessionDate = moment(session.date);
             var momentDate = moment(date);
-            if (sessionDate.dayOfYear() === momentDate.dayOfYear()) {
-                todaySessions.push(session);
-            }
+            return sessionDate.dayOfYear() === momentDate.dayOfYear();
         });
         todaySessions.sort(function (a, b) {
             var aStartDate = Date.parse(a.date + ' ' + a.start_time);
