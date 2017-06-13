@@ -103,6 +103,9 @@ html, body {
   margin-top: 0;
   margin-bottom: 20px;
 }
+.mdl-demo .mdl-card .mdl-card__media {
+  width: 100%;
+}
 .mdl-demo .mdl-card__actions {
   margin: 0;
   padding: 15px 15px;
