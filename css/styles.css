@@ -73,7 +73,7 @@ html, body {
   height: auto;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: inline-block;
+  display: flex;
   margin: 15px 15px;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
@@ -91,6 +91,9 @@ html, body {
   color: inherit;
   width: calc(100% - 30px);
   text-align: center;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
 }
 .mdl-demo .mdl-card .mdl-card__supporting-text a {
   color: #FFD54F;
@@ -257,6 +260,9 @@ html, body {
 }
 .mdl-color--primary-dark {
   background-color: #E4B429 !important;
+}
+.mdl-grid {
+  justify-content: center;
 }
 .mdl-progress {
   margin-top: 48px;

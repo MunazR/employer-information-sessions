@@ -25120,13 +25120,10 @@ var App = (function (_super) {
     App.prototype.render = function () {
         var _a = this.state, isLoading = _a.isLoading, sessions = _a.sessions;
         var date = this.props.date;
-        var todaySessions = [];
-        sessions.forEach(function (session) {
+        var todaySessions = sessions.filter(function (session) {
             var sessionDate = moment(session.date);
             var momentDate = moment(date);
-            if (sessionDate.dayOfYear() === momentDate.dayOfYear()) {
-                todaySessions.push(session);
-            }
+            return sessionDate.dayOfYear() === momentDate.dayOfYear();
         });
         todaySessions.sort(function (a, b) {
             var aStartDate = Date.parse(a.date + ' ' + a.start_time);
@@ -25140,7 +25137,7 @@ var App = (function (_super) {
             isLoading && React.createElement("div", { id: "p2", className: "mdl-progress mdl-js-progress mdl-progress__indeterminate" }),
             !isLoading && React.createElement("h4", { className: "align-center" }, moment(date).format('dddd MMMM Do')),
             !isLoading && todaySessions.length === 0 && React.createElement("h4", { className: "align-center" }, "No employer information sessions"),
-            !isLoading && todaySessions.length !== 0 && sessionCards));
+            !isLoading && todaySessions.length !== 0 && React.createElement("div", { className: "mdl-grid" }, sessionCards)));
     };
     return App;
 }(React.Component));

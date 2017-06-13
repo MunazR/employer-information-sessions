@@ -42,15 +42,11 @@ export class App extends React.Component<AppProps, AppState> {
         const { isLoading, sessions } = this.state;
         const { date } = this.props;
 
-        const todaySessions: SessionInfo[] = [];
-
-        sessions.forEach((session: SessionInfo) => {
+        const todaySessions = sessions.filter((session: SessionInfo) => {
             const sessionDate = moment(session.date);
             const momentDate = moment(date);
 
-            if (sessionDate.dayOfYear() === momentDate.dayOfYear()) {
-                todaySessions.push(session);
-            }
+            return sessionDate.dayOfYear() === momentDate.dayOfYear();
         });
 
         todaySessions.sort((a: SessionInfo, b: SessionInfo) => {
@@ -69,7 +65,7 @@ export class App extends React.Component<AppProps, AppState> {
                 {isLoading && <div id="p2" className="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>}
                 {!isLoading && <h4 className="align-center">{moment(date).format('dddd MMMM Do')}</h4>}
                 {!isLoading && todaySessions.length === 0 && <h4 className="align-center">No employer information sessions</h4>}
-                {!isLoading && todaySessions.length !== 0 && sessionCards}
+                {!isLoading && todaySessions.length !== 0 && <div className="mdl-grid">{sessionCards}</div>}
             </div>
         );
     }
